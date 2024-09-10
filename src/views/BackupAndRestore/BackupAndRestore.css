@@ -1,0 +1,15 @@
+   
+
+    .MuiDropzoneArea-root:focus{
+    border: none !important;
+    }
+
+    .MuiDropzoneArea-root:active{
+        border: none !important;
+    }
+    .MuiDropzoneArea-root:focus-visible{
+        border: none !important;
+    }
+    .MuiDropzoneArea-textContainer{
+        margin-top: 130px !important;
+    }

@@ -1,0 +1,24 @@
+/* .rowHighlight {
+  background-color: #f6f8fa;
+} */
+.ag-theme-material .ag-row-selected {
+  background-color: #CBE7F6 !important; 
+}
+@keyframes swipeRight {
+  from {
+    transform: translate3d(1000px,0,0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+.swipe-right {
+  animation-timing-function: ease-in-out;
+  transform-origin: bottom center;
+  animation-name: swipeRight;
+  animation-duration: 200ms;
+}

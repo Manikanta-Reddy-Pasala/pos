@@ -1,0 +1,139 @@
+.app-main {
+    display: flex;
+    overflow: hidden;
+    padding-left: 10px !important;
+    padding-right: 0px !important;
+  }
+  .nav-column {
+    font-family: Helvetica;
+    font-size: 18px;
+    padding: initial;
+    overflow-y: auto;
+    
+  }
+  
+
+  .barcode-paper {
+    width: 50%;
+    float: left;
+    height: 160px;
+    padding : 15px;
+  }
+
+  .preview-paper {
+    width: 49%;
+    float: right;
+    height: 160px;
+    padding : 15px;
+  }
+
+  .addBarcode {
+    margin-top: 8px;
+    border-radius: 10px;
+    padding : 15px;
+  }
+
+  .selectPrinter {
+    margin-bottom: 8px;
+    border-radius: 10px;
+    padding : 15px;
+  }
+
+  .displayInline {
+    display : inline-block;
+  }
+
+  .displayFlex {
+    display: flex;
+  }
+
+  .barcodeDesign {
+    width: 18%;
+    margin-top: 15px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+
+  .barcodeHeight{
+    width: 11%;
+    margin-top: 15px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+
+  .barcodeDesignFirst {
+    width: 10%;
+    margin-top: 15px;
+    display: inline-block;
+   
+  }
+
+  .paperDesign {
+    width: 18%;
+    margin-top: 15px;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .fontDesign {
+    width: 22%;
+    margin-top: 15px;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .fontDesignFirst {
+    width: 20%;
+    margin-top: 15px;
+    display: inline-block;
+  }
+
+  .customDiv {
+    /* position: absolute;
+    top: 50%; left: 50%;
+    transform: translateX(-50%) translateY(-50%); */
+    text-align: center;
+  }
+
+  .barcodeSetting {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 18px;
+  }
+
+  .leftAlign {
+    display: inline-block;
+    width: 48%;
+  }
+
+  .rightAlign {
+    display: inline-block;
+    width: 48%;
+    float: right;
+  }
+
+  .headerText{
+    color: black !important;
+    margin-top: 10px !important;
+    font-weight: 500 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .barcodeDiv {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 6px;
+    box-shadow: rgb(204 204 204) 0px 0px 10px;
+    overflow: hidden;
+  }
+
+  .marginBtm {
+    margin-bottom: -65px;
+  }
+
+  .textAlignEnd {
+    text-align: end;
+  }

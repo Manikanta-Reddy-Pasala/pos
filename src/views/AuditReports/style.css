@@ -1,0 +1,17 @@
+.app-main {
+    display: flex;
+    overflow: hidden;
+  }
+  .nav-column {
+    font-family: Helvetica;
+    font-size: 18px;
+    padding: initial;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+  }
+  
+  .content-column {
+    font-size: 18px;
+ 
+    overflow-y: auto;
+  }

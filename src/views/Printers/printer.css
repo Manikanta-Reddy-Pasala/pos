@@ -1,0 +1,31 @@
+.regularPrinter{
+    padding:0 0 40px 0  !important;
+}
+.headerContainer{
+    padding:200px
+}
+.MuiOutlinedInput-input {
+    padding: 8px !important;
+}
+.MuiAppBar-colorPrimary {
+    color: #171414 !important;
+    background-color: white !important;
+}
+.MuiTab-textColorInherit.Mui-selected {
+    opacity: 1;
+    color:#ef5350 !important;
+}
+.MuiRadio-root {
+    color: #ef5350 !important;
+}
+p {
+    padding: 1px 0;
+    margin: 2px 0;
+}
+.menu-item {
+    cursor: pointer;
+    padding: 2px 0;
+}
+.menu-active {
+    color: #ef5350;
+}

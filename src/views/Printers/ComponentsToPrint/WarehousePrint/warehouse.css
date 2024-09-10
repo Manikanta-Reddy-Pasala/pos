@@ -1,0 +1,23 @@
+.headerRow {
+    width:100%;
+    border:1px solid;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+  }
+
+  .detailRow {
+    width:100%;
+    border:1px solid;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+  }
+
+  .footerRow {
+    width:100%;
+    border:1px solid;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+  }

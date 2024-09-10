@@ -1,0 +1,21 @@
+.ag-theme-custom-text-right .ag-header-cell-label{
+    background-color: teal;
+    text-align: right;
+    padding-right: 10px;
+    display: inline-grid;
+  }
+
+  .header_one {
+   border-left : 1px solid rgb(207, 207, 207);
+   border-right: 1px solid rgb(207, 207, 207);
+   border-top: 1px solid rgb(207, 207, 207);
+
+  }
+
+  .rowHeader {
+    border-top: 1px solid grey;
+  }
+
+  .ag-theme-balham .ag-header-cell{
+    background-color: #e0e0e0;
+}

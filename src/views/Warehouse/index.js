@@ -1,0 +1,233 @@
+import React, { useEffect, useState } from 'react';
+import Page from 'src/components/Page';
+import {
+  Typography,
+  makeStyles,
+  Paper,
+  Button,
+  Grid,
+  Container,
+  withStyles
+} from '@material-ui/core';
+import InjectObserver from '../../Mobx/Helpers/injectWithObserver';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import { useStore } from '../../Mobx/Helpers/UseStore';
+import NoPermission from '../noPermission';
+import BubbleLoader from 'src/components/loader';
+import * as Bd from 'src/components/SelectedBusiness';
+import { toJS } from 'mobx';
+import AddWarehouse from './AddWarehouse';
+import DeleteIcon from '@material-ui/icons/Delete';
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3)
+  }
+}))(MuiDialogActions);
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    margin: '10px',
+    height: '97%'
+  },
+
+  paper: {
+    padding: 2
+  },
+
+  uploadContainer: {
+    border: '2px dashed blue',
+    padding: '100px',
+    borderRadius: '50%',
+    display: 'block',
+    textAlign: 'center',
+    width: '400px'
+  },
+
+  dropzoneStyle: {
+    '& .MuiDropzoneArea-icon': {
+      color: 'blue'
+    },
+    '& .MuiDropzoneArea-root': {
+      border: '2px dashed rgb(0, 0, 255) !important',
+      borderRadius: '50% !important',
+      display: 'block !important',
+      textAlign: 'center !important',
+      width: '400px !important',
+      height: '370px !important',
+      marginTop: '-3px !important'
+    }
+  },
+
+  uploadText: {
+    display: 'grid',
+    marginTop: '60px'
+  },
+  textCenter: {
+    textAlign: 'center',
+    color: 'grey'
+  },
+  marginSpace: {
+    margin: '0px 0 20px 0px'
+  },
+  jsonContainer: {
+    justifyContent: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    height: '70%'
+  },
+  jsontempContainer: {
+    justifyContent: 'center',
+    display: 'flex',
+    alignItems: 'center'
+  },
+
+  headerContain: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '10px 10px 40px 20px'
+  },
+  flexGrid: {
+    display: 'grid'
+  },
+  flexCenter: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  header: {
+    fontWeight: 'bold',
+    fontFamily: 'Roboto'
+  },
+  clickBtn: {
+    color: 'blue',
+    marginTop: '5px',
+    cursor: 'pointer'
+  },
+  previewChip: {
+    minWidth: 160,
+    maxWidth: 210
+  },
+  subHeader: {
+    fontWeight: 'bold',
+    fontFamily: 'Roboto',
+    paddingLeft: '20px'
+  },
+  resetContain: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingLeft: '20px'
+  }
+});
+
+const Warehouse = () => {
+  const classes = useStyles();
+  const store = useStore();
+
+  const [isFeatureAvailable, setFeatureAvailable] = useState(true);
+  const [isLoading, setLoadingShown] = useState(true);
+  const { handleWarehouseModalOpen, deleteWarehouseData, getWarehouse } =
+    store.WarehouseStore;
+  const { warehouseDialogOpen, warehouseList } = toJS(store.WarehouseStore);
+
+  useEffect(() => {
+    async function fetchData() {
+      await getWarehouse();
+    }
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const businessData = await Bd.getBusinessData();
+      await checkPermissionAvailable(businessData);
+    }
+
+    fetchData();
+    setTimeout(() => setLoadingShown(false), 200);
+  }, []);
+
+  const checkPermissionAvailable = (businessData) => {
+    if (
+      businessData &&
+      businessData.posFeatures &&
+      businessData.posFeatures.length > 0
+    ) {
+      if (!businessData.posFeatures.includes('Product')) {
+        setFeatureAvailable(false);
+      }
+    }
+  };
+
+  return (
+    <Paper className={classes.root} title="Warehouse">
+      {isLoading && <BubbleLoader></BubbleLoader>}
+      {!isLoading && (
+        <div>
+          {isFeatureAvailable ? (
+            <div>
+              <Grid className={classes.headerContain}>
+                <div>
+                  <Typography className={classes.header} variant="inherit">
+                    Warehouse
+                  </Typography>
+                </div>
+              </Grid>
+
+              <Button
+                onClick={handleWarehouseModalOpen}
+                style={{
+                  backgroundColor: 'rgb(0, 0, 255)',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  width: '180px',
+                  marginLeft: '20px',
+                  marginTop: '20px'
+                }}
+              >
+                ADD WAREHOUSE
+              </Button>
+              <div style={{marginLeft:'20px', marginTop:'20px', width:'40%'}} >
+                <div style={{ display:'flex', flexDirection:'row'}}>
+                </div>
+                {console.log('warehouse :' + warehouseList.length)}
+                {(warehouseList && warehouseList.length > 0)
+                  ? warehouseList.map((option, index) => (
+                     
+                      <div style={{display:'flex', flexDirection:'row' }}>
+                        <div style={{width:'50%', paddingLeft:'5px'}}>
+                          {option.name}
+                        </div>
+                        <div style={{width:'25%', textAlign:'left'}}>
+                          <DeleteIcon
+                            onClick={(e) => {
+                              deleteWarehouseData(option);
+                            }}
+                            className={classes.icon}
+                          />
+                        </div>
+                      </div>
+                    ))
+                  : 
+                    <div style={{display:'flex', flexDirection:'row' }}>
+                      <div style={{width:'50%', paddingLeft:'5px', textAlign:'center'}}>
+                        No Warehouse to display
+                      </div>
+                    </div>
+                  }
+              </div>
+            </div>
+          ) : (
+            <NoPermission />
+          )}
+        </div>
+      )}
+      {warehouseDialogOpen ? <AddWarehouse /> : null}
+    </Paper>
+  );
+};
+
+export default InjectObserver(Warehouse);

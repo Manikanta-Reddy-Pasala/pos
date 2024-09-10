@@ -1,0 +1,25 @@
+.ag-standard-button .ag-filter-apply-panel-button{
+    background-color: red !important;
+}
+#sales-invoice-grid.blue-theme .ag-theme-material .ag-row-selected {
+    background-color: #CBE7F6; 
+  }
+  @keyframes swipeRight {
+    from {
+      transform: translate3d(1000px,0,0);
+      opacity: 0;
+    }
+  
+    to {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+    }
+  }
+  
+  .swipe-right {
+    animation-timing-function: ease-in-out;
+    transform-origin: bottom center;
+    animation-name: swipeRight;
+    animation-duration: 300ms;
+  }
+  

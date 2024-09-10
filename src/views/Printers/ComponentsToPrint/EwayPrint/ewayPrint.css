@@ -1,0 +1,16 @@
+.headerRow {
+    width:100%;
+    padding:5px;
+    border:1px solid;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+  }
+  .detailRow {
+    width:100%;
+    padding:5px;
+    border:1px solid;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+  }

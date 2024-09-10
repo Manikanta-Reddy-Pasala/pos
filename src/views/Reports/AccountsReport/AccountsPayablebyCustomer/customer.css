@@ -1,0 +1,98 @@
+.example-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  #myGrid {
+    flex: 1 1 0px;
+    width: 100%;
+  }
+
+  #grid-theme-wrapper.red-theme .ag-theme-material .ag-row-selected {
+    background-color: #CBE7F6; 
+  }
+
+
+  #product-list-grid.red-theme .ag-theme-material .ag-row-selected {
+    background-color: #CBE7F6; 
+  }
+
+  #grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-body-viewport:not(.ag-has-focus)
+  .ag-cell-range-selected-1:not(.ag-cell-inline-editing) {
+    background-color: #CBE7F6; 
+}
+
+#grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-cell-range-selected-1:not(.ag-cell-focus),
+grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-body-viewport:not(.ag-has-focus)
+  .ag-cell-range-selected-1 {
+    background-color: #CBE7F6; 
+}
+
+#grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-cell-range-selected-2:not(.ag-cell-focus),
+grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-body-viewport:not(.ag-has-focus)
+  .ag-cell-range-selected-2 {
+   background-color: #CBE7F6; 
+}
+
+#grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-cell-range-selected-3:not(.ag-cell-focus),
+grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-body-viewport:not(.ag-has-focus)
+  .ag-cell-range-selected-3 {
+    background-color: #CBE7F6; 
+}
+
+#grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-cell-range-selected-4:not(.ag-cell-focus),
+grid-theme-wrapper.red-theme
+  .ag-theme-material
+  .ag-body-viewport:not(.ag-has-focus)
+  .ag-cell-range-selected-4 {
+   background-color: #CBE7F6; 
+}
+
+.ag-cell-focus,.ag-cell-no-focus{
+    border:none !important;
+  }
+  /* This CSS is to not apply the border for the column having 'no-border' class */
+  .no-border.ag-cell:focus{
+    border:none !important;
+    outline: none;
+  }
+
+  .ag-theme-material .ag-paging-panel > * {
+    margin: 0px;
+}
+
+@keyframes swipeRight {
+  from {
+    transform: translate3d(1000px,0,0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+.swipe-right {
+  animation-timing-function: ease-in-out;
+  transform-origin: bottom center;
+  animation-name: swipeRight;
+  animation-duration: 300ms;
+}

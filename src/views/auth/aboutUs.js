@@ -1,0 +1,247 @@
+import React, { useEffect, useState } from 'react';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import InjectObserver from '../../Mobx/Helpers/injectWithObserver';
+import { useStore } from '../../Mobx/Helpers/UseStore';
+import {
+  
+    IconButton,
+   
+  } from '@material-ui/core';
+  import { Cancel } from '@material-ui/icons';
+  import Loader from 'react-js-loader';
+
+const useStyles = makeStyles((theme) => ({
+ 
+ cancelBtn : {
+     float: 'right',
+     marginRight: '2%',
+ },
+ btn : {
+     '&:hover': {
+         color: '#EF5350'
+     }
+ },
+ mainWrapper: {
+    minWidth: '100vh',
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: 'white'
+  },
+  paper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+}));
+
+function AboutUs() {
+  const classes = useStyles();
+  const [isLoading, setLoadingShown] = React.useState(true);
+
+  const store = useStore();
+
+   const content = `
+   <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </head>
+        <body>
+   <div class="container">
+
+   <!-- Center Image  -->
+
+   <div style="text-align: center;margin: 20px;">
+       <img src="https://firebasestorage.googleapis.com/v0/b/oneshell-partner-6f48f.appspot.com/o/App_Images_Web%2FLogo.png?alt=media&token=39357827-4530-4488-8894-aee2178af85a" style="width:50%;">
+     </div>
+
+     <div>
+<br>
+ <h1 class="text-center">One-stop Integrated Solution <br>for everything your Business needs!</h1>
+
+ <div class="container">
+
+   <!-- Center Image  -->
+
+   <div style="text-align: center;margin: 20px;">
+       <img src="https://firebasestorage.googleapis.com/v0/b/oneshell-partner-6f48f.appspot.com/o/App_Images_Web%2FProduct.png?alt=media&token=20f33de5-c447-4d80-b664-d24978e1a4f1" style="width: 100%;">
+     </div>
+
+     <div>
+       <br>
+       <br>
+   <!-- Image Left and text Right -->
+   <h1 class="text-center">Mobile Billing</h1>
+ 
+   <!--  image left  -->
+   <div class="row">
+     <div class="col-md-6" style="text-align: center;">
+ 
+       <img src="https://firebasestorage.googleapis.com/v0/b/oneshell-partner-6f48f.appspot.com/o/App_Images_Web%2Fmobile.png?alt=media&token=4f15fd1d-7d29-40d6-9abe-9c8485373d20" alt="" style="width: inherit;" />
+     </div>
+     <!-- /.col-md-6 -->
+     <div class="col-md-6">
+ 
+       <div class="row align-items-center h-100">
+         <div class="col">
+           <h4>How it Works?</h4>
+           <p class="lead">
+             Billing made more easy with OneShell along with Credit Management</p>
+             <p class="lead">
+             <ul class="lead"><li>Create Unlimited Bills on a Tap!</li>
+             <li>Manage Customers with credits details</li>
+             <li>Upload Unlimited Products</li>
+             <li>Unlimited Users</li>
+             <li>Real-time Simplified Reporting</li>
+             <li>Share Bills with your customers on Whatsapp, Emails, and more</li>
+           </ul> 
+           
+           </p>
+ 
+         </div>
+       </div>
+ 
+     </div>
+     <!-- /.col-md-6 -->
+ 
+   </div>
+   <br>
+   <br>
+<!-- second header  -->
+   <h1 class="text-center">Online Store</h1>
+
+<!-- Image rigth and text left -->
+ 
+ 
+   <!--  image right  -->
+   <div class="row">
+     <div class="col-md-6 order-md-6">
+ 
+       <img src="https://firebasestorage.googleapis.com/v0/b/oneshell-partner-6f48f.appspot.com/o/App_Images_Web%2Fonline.png?alt=media&token=bc1efc32-5521-4236-8e14-f73e265c04d1" alt="" class="w-100" />
+     </div>
+     <!-- /.col-md-6 -->
+     <div class="col-md-6 order-md-1">
+ 
+       <div class="row align-items-center h-100">
+         <div class="col">
+          
+           <h4>How it Works?</h4>
+           <p class="lead">Online Store/Service with Integrated Payment Gateway in Any Category on a Tap!</p>
+           <p class="lead">
+             <ul class="lead">
+             <li>Create your Online Store</li>
+             <li>Upload Unlimited Products with Variations Support</li>
+             <li>Get your own Online Store on our E-Commerce App and Website</li>
+             <li>Manage your Online Orders easily</li>
+             <li>Lock Prices for Products on Negotiation (Online Bargain)</li>
+             <li>View your Sales Summary on a tap!</li>
+             <li>Unlimited Users, Loyaly Management, Unlimited Offer Posting and many more</li>
+
+           </ul> 
+           
+           </p>
+ 
+         </div>
+       </div>
+ 
+     </div>
+     <!-- /.col-md-6 -->
+ 
+   </div>
+   </div>
+   <!-- /.row -->
+ 
+ </div>
+<br>
+<br>
+    <!-- Image Left and text Right -->
+    <h1 class="text-center">Point Of Sales(POS)</h1>
+ 
+    <!--  image left  -->
+    <div class="row">
+      <div class="col-md-6" style="text-align: center;">
+  
+        <img src="https://firebasestorage.googleapis.com/v0/b/oneshell-partner-6f48f.appspot.com/o/App_Images_Web%2FPOS.png?alt=media&token=5d40d49d-caff-4b4b-b204-1d9f49043011" alt="" style="width: inherit;" />
+      </div>
+      <!-- /.col-md-6 -->
+      <div class="col-md-6">
+  
+        <div class="row align-items-center h-100">
+          <div class="col">
+            <h4>How it Works?</h4>
+            <p class="lead">
+             POS Software with In-Store and Online Data Sync across devices!
+             </p>
+              <p class="lead">
+              <ul class="lead">
+              <li>Efficient Inventory Management</li>
+              <li>Customer and Vendor Management</li>
+              <li>Sales/Purchases and Returns Management</li>
+              <li>Unlimited Product Upload both Online and In-Store</li>
+              <li>Advance and Credit Management</li>
+              <li>Gst Reports, Sales/Purchases Returns Reports, P/L and more</li>
+              <li>Manage both Online and Offline Inventory with Cloud Sync</li>
+              <li>Desktop Software and Website available</li>
+            </ul> 
+            
+            </p>
+  
+          </div>
+        </div>
+  
+      </div>
+      <!-- /.col-md-6 -->
+  
+    </div>
+    </div>
+    </div>
+    `;
+
+    useEffect(() => {
+      setTimeout(() => {
+          setLoadingShown(false)
+      }, 1000);
+    },[])
+
+
+  return (
+    <div>
+         {isLoading && (
+        <div className={classes.mainWrapper}>
+          <div className={classes.paper}>
+            <Loader
+              type="bubble-top"
+              bgColor={'#EF524F'}
+              color={'#EF524F'}
+              title={'Please Wait'}
+              size={60}
+            />
+          </div>
+        </div>
+      )}
+       {!isLoading && (
+      <div>
+
+        <div className={classes.cancelBtn}>
+         <IconButton component={RouterLink} to="/" className={classes.btn} >
+                <Cancel fontSize="inherit" />
+         </IconButton>
+       </div>
+       <div>
+                 
+           <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        </div>
+     </div>
+   )}
+    </div>
+  );
+}
+
+export default InjectObserver(AboutUs);

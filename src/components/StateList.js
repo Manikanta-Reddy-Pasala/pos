@@ -1,0 +1,43 @@
+export default function getStateList() {
+  let StateList = [
+    { val: '', name: 'Select State', code: '' },
+    { val: 'AP', name: 'Andhra Pradesh', code: '37' },
+    { val: 'AR', name: 'Arunachal Pradesh', code: '12' },
+    { val: 'AS', name: 'Assam', code: '18' },
+    { val: 'BR', name: 'Bihar', code: '10' },
+    { val: 'CT', name: 'Chhattisgarh', code: '22' },
+    { val: 'GA', name: 'Goa', code: '30' },
+    { val: 'GJ', name: 'Gujarat', code: '24' },
+    { val: 'HR', name: 'Haryana', code: '06' },
+    { val: 'HP', name: 'Himachal Pradesh', code: '02' },
+    { val: 'JK', name: 'Jammu and Kashmir', code: '01' },
+    { val: 'JH', name: 'Jharkhand', code: '20' },
+    { val: 'KA', name: 'Karnataka', code: '29' },
+    { val: 'KL', name: 'Kerala', code: '32' },
+    { val: 'MP', name: 'Madhya Pradesh', code: '23' },
+    { val: 'MH', name: 'Maharashtra', code: '27' },
+    { val: 'MN', name: 'Manipur', code: '14' },
+    { val: 'ML', name: 'Meghalaya', code: '17' },
+    { val: 'MZ', name: 'Mizoram', code: '15' },
+    { val: 'NL', name: 'Nagaland', code: '13' },
+    { val: 'OR', name: 'Odisha', code: '21' },
+    { val: 'PB', name: 'Punjab', code: '03' },
+    { val: 'RJ', name: 'Rajasthan', code: '08' },
+    { val: 'SK', name: 'Sikkim', code: '11' },
+    { val: 'TN', name: 'Tamil Nadu', code: '33' },
+    { val: 'TG', name: 'Telangana', code: '36' },
+    { val: 'TR', name: 'Tripura', code: '16' },
+    { val: 'UT', name: 'Uttarakhand', code: '05' },
+    { val: 'UP', name: 'Uttar Pradesh', code: '09' },
+    { val: 'WB', name: 'West Bengal', code: '19' },
+    { val: 'AN', name: 'Andaman and Nicobar Islands', code: '35' },
+    { val: 'CH', name: 'Chandigarh', code: '04' },
+    { val: 'DN', name: 'Dadra and Nagar Haveli', code: '26' },
+    { val: 'DD', name: 'Daman and Diu', code: '26' },
+    { val: 'DL', name: 'Delhi', code: '07' },
+    { val: 'LD', name: 'Lakshadweep Islands', code: '31' },
+    { val: 'PY', name: 'Pondicherry', code: '34' }
+  ];
+
+  return StateList;
+}
