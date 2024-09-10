@@ -1,0 +1,196 @@
+{
+  "name": "react-material-dashboard",
+  "author": "Oneshell",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "productName": "Oneshell",
+  "licence": "ONESHELL",
+  "version": "1.7.0",
+  "description": "Oneshell Application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Manikanta-Reddy-Pasala/pos"
+  },
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-start-mani": "export SET NODE_OPTIONS=--openssl-legacy-provider && export SKIP_PREFLIGHT_CHECK=true && react-scripts start",
+    "react-build": "react-scripts --max_old_space_size=6096 build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "run-e": "electron .",
+    "electron-build": "electron-builder",
+    "build": "npm run react-build",
+    "start": "npm run react-start",
+    "ship": "build -p always",
+    "build-electron": "npm run react-build && npm run electron-build",
+    "build-electron-win": "yarn install && export GH_TOKEN=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 && npm run react-build && electron-builder build --win --publish never",
+    "build-electron-all": "npm run react-build && electron-builder build --win --mac --publish never",
+    "publish-electron-win": "export GH_TOKEN=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 && npm run react-build && electron-builder build --win --publish always",
+    "publish-electron-win-mani": "yarn install && export SET NODE_OPTIONS=--openssl-legacy-provider && export SKIP_PREFLIGHT_CHECK=true && export GH_TOKEN=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 && npm run react-build && electron-builder build --win --publish always",
+    "build-electron-mac": "npm run react-build && electron-builder build --mac --publish never",
+    "start-electron": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "start-electron-mani": "concurrently \"cross-env BROWSER=none npm run react-start-mani\" \"wait-on http://localhost:3000 && electron .\"",
+    "ionic-resources": "cordova-res android --skip-config --copy",
+    "ionic-capacitor-setup": "ionic capacitor add android",
+    "ionic-start": "npm run react-build &&  cp -r build/ android/app/src/main/assets/public && npx cap open android",
+    "android-serve": "ionic cap sync && ionic capacitor run android",
+    "resources": "cordova-res android && node scripts/resources.js",
+    "capacitor-sync": "npx cap sync",
+    "ionic-sync": "ionic cap sync"
+  },
+  "build": {
+    "appId": "com.oneshell.pos",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Manikanta-Reddy-Pasala",
+        "repo": "pos"
+      }
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": [
+      "build//*/*"
+    ],
+    "win": {
+      "icon": "build/static/oneshell-logo.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32",
+            "x64"
+          ]
+        }
+      ],
+      "publish": [
+        "github"
+      ]
+    },
+    "mac": {
+      "icon": "build/static/oneshell-logo.png",
+      "target": [
+        "dmg"
+      ],
+      "category": "com.oneshell.pos"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@capacitor/android": "3.0.0",
+    "@capacitor/core": "^3.0.0",
+    "@createnextapp/react-barcode": "^1.1.1",
+    "@date-io/date-fns": "^1.3.13",
+    "@electron/remote": "^1.0.4",
+    "@fingerprintjs/fingerprintjs": "^3.4.0",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@ionic-native/printer": "^5.33.1",
+    "@ionic/cli": "^6.16.2",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/data-grid": "^4.0.0-alpha.17",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/pickers": "^3.2.10",
+    "@material-ui/styles": "^4.11.3",
+    "@react-pdf/font": "2.2.0",
+    "@react-pdf/layout": "3.6.4",
+    "@react-pdf/renderer": " 2.1.0",
+    "ag-grid-community": "^25.0.1",
+    "ag-grid-react": "^25.0.1",
+    "axios": "^0.21.1",
+    "chart.js": "^2.9.4",
+    "classnames": "^2.3.1",
+    "clsx": "^1.1.1",
+    "cordova-res": "^0.15.3",
+    "dangerously-set-html-content": "^1.0.9",
+    "date-fns": "^2.17.0",
+    "dateformat": "^4.5.1",
+    "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.4.3",
+    "electron-notarize": "^1.1.1",
+    "electron-push-receiver": "^2.1.3",
+    "electron-reload": "^1.5.0",
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
+    "firebase": "^8.3.1",
+    "formik": "^2.2.6",
+    "greenlet": "^1.1.0",
+    "history": "^5.0.0",
+    "jetifier": "^2.0.0",
+    "jsbarcode": "^3.11.5",
+    "lodash": "^4.17.21",
+    "material-ui-dropzone": "^3.5.0",
+    "mobx": "^6.8.0",
+    "mobx-react": "^7.6.0",
+    "modified-electron-updater": "^1.0.0",
+    "moment": "^2.29.1",
+    "node-printer": "^1.0.4",
+    "nprogress": "^0.2.0",
+    "number-to-text": "^0.3.8",
+    "oneshell-electron-pos-printer": "^1.0.148",
+    "pouchdb-adapter-http": "^7.2.2",
+    "pouchdb-adapter-idb": "^7.2.2",
+    "pouchdb-find": "^7.2.2",
+    "prop-types": "^15.7.2",
+    "qrcode": "^1.5.3",
+    "react": "^16.14.0",
+    "react-barcode": "^1.4.0",
+    "react-chartjs-2": "^2.11.1",
+    "react-color": "^2.19.3",
+    "react-csv": "^2.0.3",
+    "react-detect-offline": "^2.4.5",
+    "react-dom": "^16.14.0",
+    "react-dom-factories": "^1.0.2",
+    "react-feather": "^2.0.9",
+    "react-flexbox-grid": "^2.1.2",
+    "react-helmet": "^6.1.0",
+    "react-js-loader": "0.0.7",
+    "react-perfect-scrollbar": "^1.5.8",
+    "react-qr-code": "^2.0.7",
+    "react-router": "^6.0.1",
+    "react-router-dom": "^6.0.1",
+    "react-scripts": "^3.4.4",
+    "react-table": "6.8.6",
+    "react-to-print": "^2.14.13",
+    "react-toastify": "^8.0.3",
+    "rxdb": "^9.20.0",
+    "rxdb-hooks": "^3.0.1",
+    "rxjs": "^7.4.0",
+    "styled-components": "^6.1.8",
+    "thermal-printer-cordova-plugin": "^1.0.5",
+    "to-words": "^3.3.0",
+    "uuid": "^8.3.2",
+    "xlsx": "^0.16.9",
+    "xml-beautifier": "^0.5.0",
+    "xmlbuilder": "^15.1.1",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "3.0.0",
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^11.2.0",
+    "electron-builder": "^22.10.5",
+    "electron-packager": "^15.2.0",
+    "wait-on": "^5.3.0"
+  }
+}

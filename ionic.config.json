@@ -1,0 +1,7 @@
+{
+    "name": "Point Of Sale",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src"
+, "public/firebase-messaging-sw.js"  ]
+}

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pos
+  labels:
+    app: pos
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pos
+      version: v1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: pos
+        version: v1
+    spec:
+      containers:
+        - name: pos
+          image: gitlab.oneshell.in:5050/pos/pos/{env}:{$CI_PIPELINE_ID}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1500Mi
+            requests:
+              cpu: 200m
+              memory: 512Mi
+          volumeMounts:
+            - name: multi-stage-react-config-volume
+              mountPath: /usr/share/nginx/html/config.js
+              subPath: config.js
+              readOnly: true
+      volumes:
+        - name: multi-stage-react-config-volume
+          configMap:
+            name: multi-stage-react-config
+      serviceAccount: oneshell-sa
+      imagePullSecrets:
+        - name: gitlab
